@@ -10,3 +10,8 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=production
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app

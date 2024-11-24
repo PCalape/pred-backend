@@ -3,7 +3,7 @@ import { HydratedDocument } from 'mongoose';
 
 export type QuestionDocument = HydratedDocument<Question>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Question {
   @Prop({ required: true })
   subject: string;
@@ -28,12 +28,6 @@ export class Question {
 
   @Prop({ required: true })
   answer: string;
-
-  @Prop()
-  createdAt: Date;
-
-  @Prop()
-  updatedAt: Date;
 }
 
 export const QuestionSchema = SchemaFactory.createForClass(Question);

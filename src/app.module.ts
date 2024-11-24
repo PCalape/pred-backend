@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { Question, QuestionSchema } from './questions.schema';
 import { JwtModule } from '@nestjs/jwt';
+import { StudentAnswer, StudentAnswerSchema } from './student-answers.schema';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { JwtModule } from '@nestjs/jwt';
     MongooseModule.forRoot(process.env.MONGODB_URI),
     MongooseModule.forFeature([
       { name: Question.name, schema: QuestionSchema },
+      { name: StudentAnswer.name, schema: StudentAnswerSchema },
     ]),
     AuthModule,
   ],

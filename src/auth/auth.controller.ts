@@ -9,7 +9,7 @@ import {
   Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { SignInDto } from './auth.dto';
+import { AuthUserDto, SignInDto } from './auth.dto';
 import { AuthGuard } from './auth-guard';
 import { User } from './users.schema';
 
@@ -31,7 +31,7 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Get('profile')
-  getProfile(@Request() req: Request & { user: Partial<User> }) {
+  getProfile(@Request() req: Request & { user: AuthUserDto }) {
     return req.user;
   }
 }

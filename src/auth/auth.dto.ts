@@ -11,3 +11,8 @@ export class SignInDto {
 export class TokenDto {
   token: string;
 }
+
+export class AuthUserDto {
+  sub: string;
+  username: string;
+}

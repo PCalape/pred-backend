@@ -10,3 +10,6 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=production
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - PORT=${PORT}

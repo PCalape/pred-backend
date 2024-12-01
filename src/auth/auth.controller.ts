@@ -32,7 +32,7 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @Post('verify')
   verifyToken(@Request() req: Request) {
-    return this.authService.verifyToken(req.headers['jwt-token']);
+    return this.authService.verifyToken(req.headers['authorization']);
   }
 
   @UseGuards(AuthGuard)

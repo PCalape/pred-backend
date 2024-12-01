@@ -29,6 +29,12 @@ export class AuthController {
     return this.authService.signIn(signInDto.username, signInDto.password);
   }
 
+  @HttpCode(HttpStatus.OK)
+  @Post('verify')
+  verifyToken(@Request() req: Request) {
+    return this.authService.verifyToken(req.headers['jwt-token']);
+  }
+
   @UseGuards(AuthGuard)
   @Get('profile')
   getProfile(@Request() req: Request & { user: AuthUserDto }) {

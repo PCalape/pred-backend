@@ -37,4 +37,13 @@ export class AuthService {
       token: await this.jwtService.signAsync(payload),
     };
   }
+
+  async verifyToken(token: string): Promise<boolean> {
+    try {
+      this.jwtService.verify(token);
+      return true;
+    } catch {
+      return false;
+    }
+  }
 }
